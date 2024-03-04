@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reversi</title>
+    <link rel="stylesheet" href="reversi.css">
+    <script src="jquery.js"></script>
+    <script src="Board.js"></script>
+    <script src="GameContoroller.js"></script>
+    <script src="GameView.js"></script>
+    
+    <script src="Stone.js"></script>
+    <script src="reversi.js"></script>
+</head>
+
+<body>
+    <main>
+        <table>
+            <tbody id="board">
+                <tr>
+                    <td data-x="0" data-y="0">
+                    <td data-x="1" data-y="0">
+                    <td data-x="2" data-y="0">
+                    <td data-x="3" data-y="0">
+                    <td data-x="4" data-y="0">
+                    <td data-x="5" data-y="0">
+                    <td data-x="6" data-y="0">
+                    <td data-x="7" data-y="0">
+                </tr>
+                <tr>
+                    <td data-x="0" data-y="1">
+                    <td data-x="1" data-y="1">
+                    <td data-x="2" data-y="1">
+                    <td data-x="3" data-y="1">
+                    <td data-x="4" data-y="1">
+                    <td data-x="5" data-y="1">
+                    <td data-x="6" data-y="1">
+                    <td data-x="7" data-y="1">
+                </tr>
+                <tr>
+                    <td data-x="0" data-y="2">
+                    <td data-x="1" data-y="2">
+                    <td data-x="2" data-y="2">
+                    <td data-x="3" data-y="2">
+                    <td data-x="4" data-y="2">
+                    <td data-x="5" data-y="2">
+                    <td data-x="6" data-y="2">
+                    <td data-x="7" data-y="2">
+                </tr>
+                <tr>
+                    <td data-x="0" data-y="3">
+                    <td data-x="1" data-y="3">
+                    <td data-x="2" data-y="3">
+                    <td data-x="3" data-y="3">
+                    <td data-x="4" data-y="3">
+                    <td data-x="5" data-y="3">
+                    <td data-x="6" data-y="3">
+                    <td data-x="7" data-y="3">
+                </tr>
+                <tr>
+                    <td data-x="0" data-y="4">
+                    <td data-x="1" data-y="4">
+                    <td data-x="2" data-y="4">
+                    <td data-x="3" data-y="4">
+                    <td data-x="4" data-y="4">
+                    <td data-x="5" data-y="4">
+                    <td data-x="6" data-y="4">
+                    <td data-x="7" data-y="4">
+                </tr>
+                <tr>
+                    <td data-x="0" data-y="5">
+                    <td data-x="1" data-y="5">
+                    <td data-x="2" data-y="5">
+                    <td data-x="3" data-y="5">
+                    <td data-x="4" data-y="5">
+                    <td data-x="5" data-y="5">
+                    <td data-x="6" data-y="5">
+                    <td data-x="7" data-y="5">
+                </tr>
+                <tr>
+                    <td data-x="0" data-y="6">
+                    <td data-x="1" data-y="6">
+                    <td data-x="2" data-y="6">
+                    <td data-x="3" data-y="6">
+                    <td data-x="4" data-y="6">
+                    <td data-x="5" data-y="6">
+                    <td data-x="6" data-y="6">
+                    <td data-x="7" data-y="6">
+                </tr>
+                <tr>
+                    <td data-x="0" data-y="7">
+                    <td data-x="1" data-y="7">
+                    <td data-x="2" data-y="7">
+                    <td data-x="3" data-y="7">
+                    <td data-x="4" data-y="7">
+                    <td data-x="5" data-y="7">
+                    <td data-x="6" data-y="7">
+                    <td data-x="7" data-y="7">
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <div>
+                <p>白の手番です。</p>
+                <p>ターン数：</p>
+                <p>黒の個数：</p>
+                <p>白の個数：</p>
+            </div>
+            <button>リセット</button>
+        </div>
+    </main>
+</body>
+
+</html>
