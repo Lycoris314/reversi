@@ -1,35 +1,43 @@
-$(()=>{
-    console.log("game-start");
+$(() => {
 
     let game = new GameController();
 
     game.resetAll();
 
+    //マスをクリック
+    $("td").on("click", function () {
 
-    $("td").on("click",function(){
+        const x = $(this).attr("data-x");
+        const y = $(this).attr("data-y");
 
-        const x=$(this).attr("data-x");
-        const y=$(this).attr("data-y");
-        game.putStone(x,y);
-
-
+        game.putStone(x, y);
     })
 
-    $(".reset").on("click",()=>{
+    //盤面リセットをクリック
+    $(".reset").on("click", () => {
 
-        game =new GameController();
+        game.timerReset();
+
+        game = new GameController();
         game.resetAll()
-        
     })
 
-    $(".scaleUp").on("click",()=>{
+    //拡大・縮小をクリック
+    $(".scaleUp").on("click", () => {
 
-        $("td").width($("td").width()+5);
-        $("td").height($("td").height()+5);
+        $("td").width($("td").width() + 5);
+        $("td").height($("td").height() + 5);
     })
-    $(".scaleDown").on("click",()=>{
+    $(".scaleDown").on("click", () => {
 
-        $("td").width($("td").width()-5);
-        $("td").height($("td").height()-5);
+        $("td").width($("td").width() - 5);
+        $("td").height($("td").height() - 5);
+    })
+
+    //タイマースタートをクリック
+    $(".timerStart").on("click", () => {
+
+        const timeLimit = $(".timeLimit").val();
+        game.setTimer(timeLimit);
     })
 })

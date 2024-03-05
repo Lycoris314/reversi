@@ -5,6 +5,7 @@ class Stone{
 
     #color=Stone.EMPTY;
     #changableStone=[];
+    #animationDelay=0;
 
     setColor(color){
         this.#color =color;
@@ -20,5 +21,13 @@ class Stone{
 
     setChangebleStone(array){
         this.#changableStone =array;
+    }
+
+    getAnimationDelay(){
+        return this.#animationDelay;
+    }
+
+    setAnimationDelay(m){
+        this.#animationDelay=m;
     }
 }

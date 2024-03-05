@@ -1,8 +1,8 @@
 class Board {
     #board;
-    #turn=Stone.BLACK;
-    #turnNum=1;
-    #stoneNum=[2,2];
+    #turn = Stone.BLACK;
+    #turnNum = 1;
+    #stoneNum = [2, 2];
 
     constructor() {
 
@@ -16,7 +16,7 @@ class Board {
 
     }
 
-    getBoard(){
+    getBoard() {
         return this.#board;
     }
 
@@ -24,61 +24,74 @@ class Board {
         return this.#stoneNum;
     }
 
-    changeStoneColor(x, y) {
+    // changeStoneColor(x, y) {}
 
-    }
     putStone(x, y) {
         const stone = this.#board[x][y]
         const changeble = stone.getChangebleStone()[this.#turn]
 
-        if(stone.getColor()!=Stone.EMPTY){ 
+        if (stone.getColor() != Stone.EMPTY) {
             return false;
-        }else if(changeble.length==0){
+
+        } else if (changeble.length == 0) {
             return false;
-        }else{
+
+        } else {
             this.#board[x][y].setColor(this.#turn);
-            for(let elm of changeble){
+            this.#board[x][y].setAnimationDelay(0);
+
+            for (let elm of changeble) {
+
                 this.#board[elm[0]][elm[1]].setColor(this.#turn);
+
+                //置いた石との距離によってアニメーションの遅延を定める
+                const m = Math.max(Math.abs(x - elm[0]), Math.abs(y - elm[1]));
+
+                this.#board[elm[0]][elm[1]].setAnimationDelay(m);
             }
-            this.#turn=1- this.#turn;
+
+            this.turnChange();
 
             this.setChangebleStones();
-            this.#turnNum +=1;     
 
-            this.#stoneNum[Stone.BLACK]=
-            this.#board.flat().filter((elm)=>{
-                return elm.getColor()==Stone.BLACK}).length;
-                
-            this.#stoneNum[Stone.WHITE]=
-                this.#turnNum+3-this.#stoneNum[Stone.BLACK];
-                
-            
+            this.#turnNum += 1;
+
+            this.#stoneNum[Stone.BLACK] =
+
+                this.#board.flat().filter((elm) => {
+                    return elm.getColor() == Stone.BLACK
+                }).length;
+
+            this.#stoneNum[Stone.WHITE] =
+
+                this.#turnNum + 3 - this.#stoneNum[Stone.BLACK];
 
             return true;
         }
     }
-    turnSkip() {
-        this.#turn=1-this.#turn;
-
+    turnChange() {
+        this.#turn = 1 - this.#turn;
     }
 
-    getTurn(){
+    getTurn() {
         return this.#turn;
     }
 
-    getTurnNum(){
+    getTurnNum() {
         return this.#turnNum;
     }
 
-    setChangebleStones(){
+    setChangebleStones() {
         for (let i = 0; i < 8; i++) {
             for (let j = 0; j < 8; j++) {
 
+                //changebleなものをこれらに入れていく
                 let arrBlack = [];
                 let arrWhite = [];
 
                 let stone = this.#board[i][j];
                 stone.setChangebleStone([[], []]);
+
                 if (stone.getColor() != Stone.EMPTY) continue;
 
                 let arr = [];
@@ -96,6 +109,7 @@ class Board {
                         return;
 
                     } else if (color == 1 - bw) {
+
                         arr.push([i + s, j]);
                         left(s + 1, board, i, j, bw);
 
@@ -126,6 +140,7 @@ class Board {
                         return;
 
                     } else if (color == 1 - bw) {
+
                         arr.push([i + s, j]);
                         right(s - 1, board, i, j, bw);
 
@@ -154,7 +169,8 @@ class Board {
                         arr = [];
                         return;
 
-                    } else if (color == 1-bw) {
+                    } else if (color == 1 - bw) {
+
                         arr.push([i, j + s]);
                         top(s + 1, board, i, j, bw);
 
@@ -183,7 +199,8 @@ class Board {
                         arr = [];
                         return;
 
-                    } else if (color == 1-bw) {
+                    } else if (color == 1 - bw) {
+
                         arr.push([i, j + s]);
                         bottom(s - 1, board, i, j, bw);
 
@@ -200,7 +217,7 @@ class Board {
                 arr = [];
 
 
-                
+
                 function leftTop(s, board, i, j, bw) {
 
                     if (i + s >= 8 || j + s >= 8) {
@@ -214,6 +231,7 @@ class Board {
                         return;
 
                     } else if (color == 1 - bw) {
+
                         arr.push([i + s, j + s]);
                         leftTop(s + 1, board, i, j, bw);
 
@@ -243,6 +261,7 @@ class Board {
                         return;
 
                     } else if (color == 1 - bw) {
+
                         arr.push([i + s, j + s]);
                         rightBottom(s - 1, board, i, j, bw);
 
@@ -273,6 +292,7 @@ class Board {
                         return;
 
                     } else if (color == 1 - bw) {
+
                         arr.push([i + s, j - s]);
                         leftBottom(s + 1, board, i, j, bw);
 
@@ -303,6 +323,7 @@ class Board {
                         return;
 
                     } else if (color == 1 - bw) {
+
                         arr.push([i - s, j + s]);
                         rightTop(s + 1, board, i, j, bw);
 
@@ -318,9 +339,6 @@ class Board {
                 arr.forEach((elm) => arrWhite.push(elm))
                 arr = [];
 
-
-                //console.log(i, j, arrBlack);
-                //console.log(i, j, arrWhite);
                 stone.setChangebleStone([arrBlack, arrWhite]);
 
             }

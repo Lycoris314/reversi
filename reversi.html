@@ -10,7 +10,6 @@
     <script src="Board.js"></script>
     <script src="GameContoroller.js"></script>
     <script src="GameView.js"></script>
-    
     <script src="Stone.js"></script>
     <script src="reversi.js"></script>
 </head>
@@ -104,15 +103,25 @@
         <div class="info">
             <div>
                 <p><span class="turn">黒</span>の手番です。</p>
+
                 <p>ターン数：<span class="turnNum">1</span></p>
+
                 <p>黒の個数：<span class="blackNum">2</span></p>
                 <p>白の個数：<span class="whiteNum">2</span></p>
+
                 <p class="skip"></p>
+
                 <p class="outcome"></p>
             </div>
+            <div class="timer"></div>
             <div>
-            <p>盤面サイズ：<button class="scaleUp">拡大</button><button class="scaleDown">縮小</button></p>
-            <p><button class="reset">盤面リセット</button></p>
+                <p>制限時間を設定：<input type="number" class="timeLimit" min="5" step="5" value="60">秒</p>
+
+                <p><button class="timerStart">タイマースタート</button></p>
+
+                <p>盤面サイズ：<button class="scaleUp">拡大</button><button class="scaleDown">縮小</button></p>
+
+                <p><button class="reset">盤面リセット</button></p>
             </div>
         </div>
     </main>
