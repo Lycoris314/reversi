@@ -20,7 +20,7 @@ class GameView {
                 this.#boardTbody[i][j].removeClass("canPut")
                 
                 switch(bo[i][j].getColor()){
-                    case Stone.BLACK:
+                    case Stone.BLACK:       
                         this.#boardTbody[i][j].addClass("black").removeClass("white");
                         break;
                     case Stone.WHITE:

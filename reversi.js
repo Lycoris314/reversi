@@ -21,4 +21,15 @@ $(()=>{
         game.resetAll()
         
     })
+
+    $(".scaleUp").on("click",()=>{
+
+        $("td").width($("td").width()+5);
+        $("td").height($("td").height()+5);
+    })
+    $(".scaleDown").on("click",()=>{
+
+        $("td").width($("td").width()-5);
+        $("td").height($("td").height()-5);
+    })
 })

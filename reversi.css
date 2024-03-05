@@ -1,19 +1,25 @@
 @charset "utf-8";
 
+body{
+    background-color: antiquewhite;
+}
+
 main{
+    margin: 30px;
     display: flex;
-    gap:20px;
+    gap:30px;
+    align-items: center;
 }
 
 .info{
     display: grid;
-    width:180px;
+    width:200px;
     height: 450px;
     align-content: space-between;
 }
 
 p:has(.reset){
-    text-align: right;
+    text-align: center;
     height:30px;
     margin:0;
 }
@@ -22,15 +28,30 @@ p:has(.reset){
     height: 100%;
 }
 
+.scaleUp{
+    margin-right: 10px;
+}
+
 table{
     border:10px solid silver;
-    border-radius: 5px;
+    border-collapse: collapse;
 }
 
 td{
     width: 50px;
     height:50px;
     background-color: rgb(92, 211, 171);
+    padding:0;
+    border:2px solid white
+    /* border:3px solid rgb(241, 241, 241); */
+    /* background-color: rgb(30, 30, 30); */
+
+}
+
+td.black{
+    /* background-color: transparent; */
+    /*background-image: url("./image/moon.png");*/
+    /* background-size: contain; */
 }
 
 
@@ -42,8 +63,20 @@ td.black::before{
     border-radius:50%;
     margin:0 auto;
     background-color: rgb(0, 0, 0);
-    box-shadow: 1px 1px 1px 1px white;
+    box-shadow: 1px 1px 1px 1px white; 
+    animation: 0.4s linear 0s animeB;
+    /* background-size: contain; */
+    /* background-image: url("./image/moon.png"); */
     
+}
+
+@keyframes animeB{
+    from{ width:70%;
+        background-color: white;}
+    50% { width:0%;
+        background-color: white;}
+    to{ width:70%; 
+        background-color: black;}
 }
 
 td.white::before{
@@ -53,8 +86,18 @@ td.white::before{
     height:70%;
     border-radius:50%;
     margin:0 auto;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     box-shadow: 1px 1px 1px 1px black;
+    animation: 0.4s linear 0s animeW;
+}
+
+@keyframes animeW{
+    from{ width:70%;
+        background-color: black;}
+    50% { width:0%;
+        background-color: black;}
+    to{ width:70%; 
+        background-color: white;}
 }
 
 td:hover{
