@@ -1,33 +1,33 @@
-class Stone{
-    static BLACK=0;
-    static WHITE=1;
-    static EMPTY=-1;
+class Stone {
+    static BLACK = 0;
+    static WHITE = 1;
+    static EMPTY = -1;
 
-    #color=Stone.EMPTY;
-    #changableStone=[];
-    #animationDelay=0;
+    #color = Stone.EMPTY;
+    #changableStone = [];
+    #animationDelay = 0;
 
-    setColor(color){
-        this.#color =color;
+    setColor(color) {
+        this.#color = color;
     }
 
-    getColor(){
+    getColor() {
         return this.#color;
     }
 
-    getChangebleStone(){
+    getChangebleStone() {
         return this.#changableStone;
     }
 
-    setChangebleStone(array){
-        this.#changableStone =array;
+    setChangebleStone(array) {
+        this.#changableStone = array;
     }
 
-    getAnimationDelay(){
+    getAnimationDelay() {
         return this.#animationDelay;
     }
 
-    setAnimationDelay(m){
-        this.#animationDelay=m;
+    setAnimationDelay(m) {
+        this.#animationDelay = m;
     }
 }

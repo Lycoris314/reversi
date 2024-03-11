@@ -72,7 +72,7 @@ td {
     height: 50px;
     background-color: rgb(92, 211, 171);
     padding: 0;
-    border: 2px solid white
+    border: 2px solid white;
 }
 
 
@@ -85,6 +85,7 @@ td.black::before {
     margin: 0 auto;
     background-color: rgb(0, 0, 0);
     box-shadow: 1px 1px 1px 1px white;
+    position: relative;
 }
 
 td.black.anime::before {
@@ -93,18 +94,24 @@ td.black.anime::before {
 
 @keyframes animeB {
     from {
+        scale: 1;
         width: 70%;
         background-color: white;
+        right: 0;
     }
 
     50% {
+        scale: 1.2;
         width: 0%;
-        background-color: gray;
+        background-color: rgb(255, 255, 255);
+        right: 10px;
     }
 
     to {
+        scale: 1;
         width: 70%;
         background-color: black;
+        right: 0;
     }
 }
 
@@ -117,7 +124,7 @@ td.white::before {
     margin: 0 auto;
     background-color: white;
     box-shadow: 1px 1px 1px 1px black;
-
+    position: relative;
 }
 
 td.white.anime::before {
@@ -126,18 +133,24 @@ td.white.anime::before {
 
 @keyframes animeW {
     from {
+        scale: 1;
         width: 70%;
         background-color: black;
+        left: 0px;
     }
 
     50% {
+        scale: 1.2;
         width: 0%;
-        background-color: gray;
+        background-color: silver;
+        left: 10px;
     }
 
     to {
+        scale: 1;
         width: 70%;
         background-color: white;
+        left: 0px;
     }
 }
 

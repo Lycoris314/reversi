@@ -25,7 +25,7 @@ class GameController {
 
         this.#gameView.viewStoneNum(bo.getStoneNum());
 
-        this.#count = Number(this.#timeLimit) + 1;
+        this.#count = this.#timeLimit + 1;
 
 
         // if( bo.getTurnNum()>60 ){
@@ -44,7 +44,7 @@ class GameController {
         //置く場所がないのでスキップ
         if (
             bo.getBoard().flat().every((elm) => {
-                return elm.getChangebleStone()[bo.getTurn()].length == 0;
+                return elm.getChangebleStone()[bo.getTurn()].length === 0;
             })
         ) {
             this.#gameView.turnSkip(bo.getTurn());
@@ -54,7 +54,7 @@ class GameController {
             //両者打てないので決着
             if (
                 bo.getBoard().flat().every((elm) => {
-                    return elm.getChangebleStone()[bo.getTurn()].length == 0;
+                    return elm.getChangebleStone()[bo.getTurn()].length === 0;
                 })
             ) {
                 this.#gameView.result(bo);
@@ -105,8 +105,13 @@ class GameController {
 
                     const bw = this.#board.getTurn();
                     this.#gameView.timeoutResult(bw);
-                    $(".timerStart").prop("disabled", "");
 
+                    const bo = this.#board.getBoard();
+                    bo.flat().forEach((elm) => {
+                        elm.setChangebleStone([[], []]);
+                    });
+
+                    this.#gameView.redrawBoard(this.#board);
                 }
             }, 1000);
     }

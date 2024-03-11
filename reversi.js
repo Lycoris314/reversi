@@ -37,7 +37,8 @@ $(() => {
     //タイマースタートをクリック
     $(".timerStart").on("click", () => {
 
-        const timeLimit = $(".timeLimit").val();
+        const timeLimit = Number($(".timeLimit").val());
+
         game.setTimer(timeLimit);
     })
 })

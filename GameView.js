@@ -71,7 +71,7 @@ class GameView {
     }
 
     timeoutResult(bw) {
-        const loser = bw == Stone.BLACK ? "黒" : "白";
+        const loser = bw === Stone.BLACK ? "黒" : "白";
         $(".outcome").text(`時間切れで${loser}の負けです`);
     }
 
@@ -91,7 +91,7 @@ class GameView {
     }
 
     turnSkip(turn) {
-        const c = turn == Stone.BLACK ? "黒" : "白";
+        const c = turn === Stone.BLACK ? "黒" : "白";
         $(".skip").text(`${c}の手番をスキップしました。`);
     }
 
@@ -106,7 +106,7 @@ class GameView {
     }
 
     viewTurn(turn) {
-        const c = turn == Stone.BLACK ? "黒" : "白";
+        const c = turn === Stone.BLACK ? "黒" : "白";
         $(".turn").text(`${c}`);
     }
 }
